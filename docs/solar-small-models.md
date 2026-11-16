@@ -59,4 +59,4 @@ Before a public offering, also test end-to-end via LiteLLM with **real virtual-k
 - OpenBMB MiniCPM5: https://huggingface.co/openbmb/MiniCPM5-2B/blob/main/config.json
 - NVIDIA Nemotron: https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16/blob/main/config.json
 
-Unit tests: \`python3 -m unittest tests.test_solar_catalog -v\`.
+Unit tests: \`python3 -m unittest discover -s tests -p 'test_solar_catalog.py' -v\`.
