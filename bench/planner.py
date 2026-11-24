@@ -63,7 +63,8 @@ def compute_budget(probe: dict, policy: dict) -> dict:
     per_dev = []
     for d in devices:
         total = d["memory_total_bytes"]
-        reserve = max(int(total * policy["reserve_fraction"]), policy["reserve_min_bytes"])
+        dev_reserve_min = min(policy["reserve_min_bytes"], int(total * 0.15)) if total <= 12 * GiB else policy["reserve_min_bytes"]
+        reserve = max(int(total * policy["reserve_fraction"]), dev_reserve_min)
         b = max(total - reserve, 0)
         node_topo = d.get("node_topology", topo)
         node_sys = d.get("node_system_total_bytes", sys_total)

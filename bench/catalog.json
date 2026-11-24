@@ -136,6 +136,299 @@
  },
  "models": [
   {
+   "id": "gemma-4-e2b",
+   "modality": "text",
+   "params_total": 5100000000,
+   "params_active": 2300000000,
+   "arch": {
+    "n_layers": 7,
+    "n_kv_heads": 1,
+    "head_dim": 512,
+    "_note": "7 full-attention layers (global_head_dim=512) + 28 sliding-window layers (window=512, head_dim=256 accounted via state_bytes_per_seq)"
+   },
+   "context": {
+    "min": 8192,
+    "max": 131072
+   },
+   "kv_bytes_per_token": 14336,
+   "state_bytes_per_seq": 14680064,
+   "verified": true,
+   "files": [
+    {
+     "quant": "q4_k_m",
+     "bytes": 3106738272,
+     "sha256": "740185b21d22ceb83a11c3aa62ad5842ef32c70f6096d756bbee85a1e4ec34b8",
+     "filename": "gemma-4-E2B-it-Q4_K_M.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q4_K_M.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E2B-it-Q4_K_M.gguf",
+       "bytes": 3106738272,
+       "sha256": "740185b21d22ceb83a11c3aa62ad5842ef32c70f6096d756bbee85a1e4ec34b8",
+       "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q4_K_M.gguf"
+      }
+     ]
+    },
+    {
+     "quant": "q4_0",
+     "bytes": 3041378400,
+     "sha256": "31d3a3c630d4e71a7416498c42660dd3805066948acaec76a47e1ffac7010132",
+     "filename": "gemma-4-E2B-it-Q4_0.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q4_0.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E2B-it-Q4_0.gguf",
+       "bytes": 3041378400,
+       "sha256": "31d3a3c630d4e71a7416498c42660dd3805066948acaec76a47e1ffac7010132",
+       "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q4_0.gguf"
+      }
+     ]
+    },
+    {
+     "quant": "ud-q4_k_xl",
+     "bytes": 3184496736,
+     "sha256": "b52f438017efaec5debf1c0d8be690571e212a07c312f1102bbce927258cfc32",
+     "filename": "gemma-4-E2B-it-UD-Q4_K_XL.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-UD-Q4_K_XL.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E2B-it-UD-Q4_K_XL.gguf",
+       "bytes": 3184496736,
+       "sha256": "b52f438017efaec5debf1c0d8be690571e212a07c312f1102bbce927258cfc32",
+       "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-UD-Q4_K_XL.gguf"
+      }
+     ]
+    },
+    {
+     "quant": "q6_k",
+     "bytes": 4501721184,
+     "sha256": "f7b8980ecc1c115898fd8d9a3d421d90becbac984194a44b478669c26815843d",
+     "filename": "gemma-4-E2B-it-Q6_K.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q6_K.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E2B-it-Q6_K.gguf",
+       "bytes": 4501721184,
+       "sha256": "f7b8980ecc1c115898fd8d9a3d421d90becbac984194a44b478669c26815843d",
+       "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q6_K.gguf"
+      }
+     ]
+    },
+    {
+     "quant": "q8_0",
+     "bytes": 5048352864,
+     "sha256": "605d3c2647d7c58c1e4b5375ccb5702acf94c2611b4c8d4877812f8fdd32d053",
+     "filename": "gemma-4-E2B-it-Q8_0.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q8_0.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E2B-it-Q8_0.gguf",
+       "bytes": 5048352864,
+       "sha256": "605d3c2647d7c58c1e4b5375ccb5702acf94c2611b4c8d4877812f8fdd32d053",
+       "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q8_0.gguf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gemma-4-e2b-qat",
+   "modality": "text",
+   "params_total": 5100000000,
+   "params_active": 2300000000,
+   "arch": {
+    "n_layers": 7,
+    "n_kv_heads": 1,
+    "head_dim": 512,
+    "_note": "QAT variant; 7 full-attention layers + 28 sliding-window layers"
+   },
+   "context": {
+    "min": 8192,
+    "max": 131072
+   },
+   "kv_bytes_per_token": 14336,
+   "state_bytes_per_seq": 14680064,
+   "verified": true,
+   "files": [
+    {
+     "quant": "ud-q4_k_xl",
+     "bytes": 2620370976,
+     "sha256": "e531007218dfab990486a5de7676a6932d6ea8dea233d1f698d7c21cf8a16889",
+     "filename": "gemma-4-E2B-it-qat-UD-Q4_K_XL.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-qat-GGUF/resolve/66a399f68ddd113b06dff02fca9523e55465d11d/gemma-4-E2B-it-qat-UD-Q4_K_XL.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E2B-it-qat-UD-Q4_K_XL.gguf",
+       "bytes": 2620370976,
+       "sha256": "e531007218dfab990486a5de7676a6932d6ea8dea233d1f698d7c21cf8a16889",
+       "url": "https://huggingface.co/unsloth/gemma-4-E2B-it-qat-GGUF/resolve/66a399f68ddd113b06dff02fca9523e55465d11d/gemma-4-E2B-it-qat-UD-Q4_K_XL.gguf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gemma-4-e4b",
+   "modality": "text",
+   "params_total": 8000000000,
+   "params_active": 4500000000,
+   "arch": {
+    "n_layers": 7,
+    "n_kv_heads": 2,
+    "head_dim": 512,
+    "_note": "7 full-attention layers (global_head_dim=512) + 35 sliding-window layers (window=512, head_dim=256 accounted via state_bytes_per_seq)"
+   },
+   "context": {
+    "min": 8192,
+    "max": 131072
+   },
+   "kv_bytes_per_token": 28672,
+   "state_bytes_per_seq": 36700160,
+   "verified": true,
+   "files": [
+    {
+     "quant": "q4_k_m",
+     "bytes": 4977171584,
+     "sha256": "85a896a047553e842f25297ee5b031d64ff30147d9c4af17b1e4b394cd1fab87",
+     "filename": "gemma-4-E4B-it-Q4_K_M.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/bfc15c382204943c3a8fff0c750b94ae2364d7a3/gemma-4-E4B-it-Q4_K_M.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E4B-it-Q4_K_M.gguf",
+       "bytes": 4977171584,
+       "sha256": "85a896a047553e842f25297ee5b031d64ff30147d9c4af17b1e4b394cd1fab87",
+       "url": "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/bfc15c382204943c3a8fff0c750b94ae2364d7a3/gemma-4-E4B-it-Q4_K_M.gguf"
+      }
+     ]
+    },
+    {
+     "quant": "q4_0",
+     "bytes": 4836002944,
+     "sha256": "4a403d2e4d80281063e4f517b1c061ded8476b4011a4fc2ba7dbff707075547e",
+     "filename": "gemma-4-E4B-it-Q4_0.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/bfc15c382204943c3a8fff0c750b94ae2364d7a3/gemma-4-E4B-it-Q4_0.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E4B-it-Q4_0.gguf",
+       "bytes": 4836002944,
+       "sha256": "4a403d2e4d80281063e4f517b1c061ded8476b4011a4fc2ba7dbff707075547e",
+       "url": "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/bfc15c382204943c3a8fff0c750b94ae2364d7a3/gemma-4-E4B-it-Q4_0.gguf"
+      }
+     ]
+    },
+    {
+     "quant": "ud-q4_k_xl",
+     "bytes": 5126306944,
+     "sha256": "3cf61de12daa015ee0f7b68e7b7c541405bf220e1e942bad8b47cab827d7df80",
+     "filename": "gemma-4-E4B-it-UD-Q4_K_XL.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/bfc15c382204943c3a8fff0c750b94ae2364d7a3/gemma-4-E4B-it-UD-Q4_K_XL.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E4B-it-UD-Q4_K_XL.gguf",
+       "bytes": 5126306944,
+       "sha256": "3cf61de12daa015ee0f7b68e7b7c541405bf220e1e942bad8b47cab827d7df80",
+       "url": "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/bfc15c382204943c3a8fff0c750b94ae2364d7a3/gemma-4-E4B-it-UD-Q4_K_XL.gguf"
+      }
+     ]
+    },
+    {
+     "quant": "q6_k",
+     "bytes": 7074929792,
+     "sha256": "fd83f3ef44d22e00ff0f638753dde9a66a83e8ccf79c11024f47d383c489531b",
+     "filename": "gemma-4-E4B-it-Q6_K.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/bfc15c382204943c3a8fff0c750b94ae2364d7a3/gemma-4-E4B-it-Q6_K.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E4B-it-Q6_K.gguf",
+       "bytes": 7074929792,
+       "sha256": "fd83f3ef44d22e00ff0f638753dde9a66a83e8ccf79c11024f47d383c489531b",
+       "url": "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/bfc15c382204943c3a8fff0c750b94ae2364d7a3/gemma-4-E4B-it-Q6_K.gguf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gemma-4-e4b-qat",
+   "modality": "text",
+   "params_total": 8000000000,
+   "params_active": 4500000000,
+   "arch": {
+    "n_layers": 7,
+    "n_kv_heads": 2,
+    "head_dim": 512,
+    "_note": "QAT variant; 7 full-attention layers + 35 sliding-window layers"
+   },
+   "context": {
+    "min": 8192,
+    "max": 131072
+   },
+   "kv_bytes_per_token": 28672,
+   "state_bytes_per_seq": 36700160,
+   "verified": true,
+   "files": [
+    {
+     "quant": "ud-q4_k_xl",
+     "bytes": 4215695776,
+     "sha256": "df0fd4ee07072c607c29a0a1cb4f98918426cca12f45a2776bdd6ee6d09a4de3",
+     "filename": "gemma-4-E4B-it-qat-UD-Q4_K_XL.gguf",
+     "url": "https://huggingface.co/unsloth/gemma-4-E4B-it-qat-GGUF/resolve/8c5a9e4fd5482e2be20fe0bf013b4c262a8f4265/gemma-4-E4B-it-qat-UD-Q4_K_XL.gguf",
+     "engines": [
+      "llama.cpp"
+     ],
+     "verified": true,
+     "parts": [
+      {
+       "filename": "gemma-4-E4B-it-qat-UD-Q4_K_XL.gguf",
+       "bytes": 4215695776,
+       "sha256": "df0fd4ee07072c607c29a0a1cb4f98918426cca12f45a2776bdd6ee6d09a4de3",
+       "url": "https://huggingface.co/unsloth/gemma-4-E4B-it-qat-GGUF/resolve/8c5a9e4fd5482e2be20fe0bf013b4c262a8f4265/gemma-4-E4B-it-qat-UD-Q4_K_XL.gguf"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "llama-3.1-8b",
    "modality": "text",
    "params_total": 8030000000,
@@ -893,6 +1186,15 @@
     "ling-3.0-flash"
    ],
    "context": 32768
+  },
+  "residency-edge-8gb": {
+   "description": "Edge 8 GB VRAM residency set (Gemma 4 E2B + E2B-QAT + E4B-QAT) for RTX 4000 / 8 GB discrete GPUs.",
+   "models": [
+    "gemma-4-e2b",
+    "gemma-4-e2b-qat",
+    "gemma-4-e4b-qat"
+   ],
+   "context": 16384
   }
  },
  "engine_preference": {
