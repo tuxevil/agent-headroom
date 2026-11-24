@@ -113,6 +113,23 @@ class PlannerTests(_PlannerBase):
         self.assertFalse(self.plan(probe("unified", [128], 128), "ladder")["custom"])
         self.assertTrue(self.plan(probe("unified", [128], 128), "ladder", reserve_fraction=0.2)["custom"])
 
+    def test_discrete_8gb_rtx4000_plans_gemma4_and_warm_contexts(self):
+        rtx4000 = probe("discrete", [8], 96, engines={"llama.cpp": "b1"})
+        ladder = self.plan(rtx4000, "ladder")
+        self.assertEqual(ladder["selections"][0]["status"], "fits")
+        self.assertIn(ladder["selections"][0]["model_id"], ("gemma-4-e2b", "gemma-4-e2b-qat", "gemma-4-e4b", "gemma-4-e4b-qat"))
+
+        pressure = self.plan(rtx4000, "host_pressure", model="gemma-4-e2b", quant="q4_k_m", target_context=16384)
+        self.assertEqual(pressure["selections"][0]["status"], "fits")
+        self.assertGreaterEqual(pressure["selections"][0]["max_n_seq"], 4)
+
+        warm = self.plan(rtx4000, "warm_contexts", model="gemma-4-e2b", quant="q4_k_m", target_context=16384, slots=4)
+        self.assertEqual(warm["selections"][0]["status"], "fits")
+
+        residency = self.plan(rtx4000, "residency", preset="residency-edge-8gb")
+        self.assertEqual(len(residency["selections"]), 3)
+        self.assertEqual(residency["selections"][0]["status"], "resident")
+
 
 if __name__ == "__main__":
     unittest.main()
