@@ -46,6 +46,12 @@ def _host_min(policy: dict, sys_total: int) -> int:
     return min(policy["host_min_bytes"], int(sys_total * 0.2)) if sys_total else policy["host_min_bytes"]
 
 
+def device_budget_bytes(total: int, policy: dict) -> int:
+    dev_reserve_min = min(policy["reserve_min_bytes"], int(total * 0.15)) if total <= 12 * GiB else policy["reserve_min_bytes"]
+    reserve = max(int(total * policy["reserve_fraction"]), dev_reserve_min)
+    return max(total - reserve, 0)
+
+
 def compute_budget(probe: dict, policy: dict) -> dict:
     """Topologies:
       discrete  - VRAM budget per device; host RAM is for tools (and CPU offload if allowed)
@@ -63,9 +69,7 @@ def compute_budget(probe: dict, policy: dict) -> dict:
     per_dev = []
     for d in devices:
         total = d["memory_total_bytes"]
-        dev_reserve_min = min(policy["reserve_min_bytes"], int(total * 0.15)) if total <= 12 * GiB else policy["reserve_min_bytes"]
-        reserve = max(int(total * policy["reserve_fraction"]), dev_reserve_min)
-        b = max(total - reserve, 0)
+        b = device_budget_bytes(total, policy)
         node_topo = d.get("node_topology", topo)
         node_sys = d.get("node_system_total_bytes", sys_total)
         if node_topo == "unified":

@@ -120,3 +120,10 @@ class AdmitCoherentTests(unittest.TestCase):
         q["devices"][0]["memory_free_bytes"] = 40 * GiB
         with self.assertRaises(Refused):
             admit(plan, q)
+
+    def test_admit_accepts_8gb_discrete_gpu_plan_without_budget_drift(self):
+        p = probe("discrete", [8], 96, engines={"llama.cpp": "b1"})
+        p["devices"][0]["memory_free_bytes"] = int(7.5 * GiB)
+        cat = load_catalog()
+        plan = build_plan(p, copy.deepcopy(cat), "host_pressure", None, {"model": "gemma-4-e2b", "quant": "q4_k_m", "target_context": 16384})
+        self.assertEqual(admit(plan, copy.deepcopy(p)), [])

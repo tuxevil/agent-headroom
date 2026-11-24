@@ -22,7 +22,7 @@ import urllib.request
 
 from . import __version__
 from .catalog import get_model
-from .planner import RUNNABLE
+from .planner import RUNNABLE, device_budget_bytes
 from .probe import GiB, default_cache_path, fmt_bytes, run_probe
 
 SCHEMA_VERSION = "1.0"
@@ -60,8 +60,7 @@ def admit(plan: dict, probe: dict) -> list[str]:
     pol = plan["policy"]
     for d, planned in zip(probe["devices"], pb["gpu_bytes_per_device"]):
         total = d["memory_total_bytes"]
-        reserve = max(int(total * pol["reserve_fraction"]), pol["reserve_min_bytes"])
-        now = max(total - reserve, 0)
+        now = device_budget_bytes(total, pol)
         if pb["topology"] == "unified":
             now = min(now, max((probe["memory"]["system_total_bytes"] or 0) - pb["host_min_bytes"], 0))
         if planned and abs(now - planned) / planned > DRIFT_TOLERANCE:
